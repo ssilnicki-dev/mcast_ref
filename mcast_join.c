@@ -45,7 +45,8 @@ int main() {
     mreq.gr_interface = 1; // FIXME: requires particular mcast capable interface - adjust to your setup
 #endif
 #ifdef __linux__
-    mreq.gr_interface = 0; // use default behavior
+    /* mreq.gr_interface = 0; // use default behavior */
+    mreq.gr_interface = 1;
 #endif
     struct sockaddr_in *group_addr = (struct sockaddr_in *)&mreq.gr_group;
     group_addr->sin_family = AF_INET;
